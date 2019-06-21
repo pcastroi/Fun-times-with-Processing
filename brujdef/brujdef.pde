@@ -18,6 +18,11 @@ void draw() {
   circtile(0, 0, 120, 140, 24);
   bruj(0, 0, 50, 120, 16);
   bruj(0, 0, 30, 200, 4);
+  if (frameCount == 1) {
+    TImage frame = new TImage(width, height, RGB, sketchPath("frame_"+nf(frameCount, 3)+".png"));
+    frame.set(0, 0, get());
+    frame.saveThreaded();
+  }
 }
 void bruj(float x, float y, float radius1, float radius2, int numPoints) {
   float angle = TWO_PI/numPoints;
@@ -67,4 +72,21 @@ void circtile(float x, float y, float radius1, float radius2, int numPoints) {
     count++;
   }
   endShape();
+}
+
+class TImage extends PImage implements Runnable { //separate thread for saving images
+  String filename;
+
+  TImage(int w, int h, int format, String filename) {
+    this.filename = filename;
+    init(w, h, format);
+  }
+
+  public void saveThreaded() {
+    new Thread(this).start();
+  }
+
+  public void run() {
+    this.save(filename);
+  }
 }
