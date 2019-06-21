@@ -1,5 +1,5 @@
 # Simple compass  
-![](https://media.istockphoto.com/vectors/drawing-of-a-compass-vector-id690375240 = 500x500)  
+<img src="https://media.istockphoto.com/vectors/drawing-of-a-compass-vector-id690375240" alt="drawing" width="500" height="500"/>  
 Reference  
-![](frame_001.png = 500x500)  
+<img src="frame_001.png" width="500" height="500"/>  
 Processing result
